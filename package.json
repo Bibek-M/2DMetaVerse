@@ -1,0 +1,21 @@
+{
+  "name": "metaverse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2D Virtual Metaverse with Real-time Movement and Proximity WebRTC Video/Audio",
+  "scripts": {
+    "dev": "concurrently -n \"server,client\" -c \"cyan,magenta\" \"pnpm --dir server dev\" \"pnpm --dir client dev\"",
+    "dev:server": "pnpm --dir server dev",
+    "dev:client": "pnpm --dir client dev",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:logs": "docker compose logs -f",
+    "build:server": "pnpm --dir server build",
+    "build:client": "pnpm --dir client build",
+    "build": "pnpm build:server && pnpm build:client",
+    "start": "node server/dist/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

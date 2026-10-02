@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: metaverse_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: metaverse_user
+      POSTGRES_PASSWORD: metaverse_password
+      POSTGRES_DB: metaverse_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+    driver: local
